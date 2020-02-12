@@ -1,19 +1,20 @@
-
 <header role="banner">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand absolute" href="index.html">University</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand absolute" href="{{ route('home') }}">Supporter</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
+                    aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active" href="{{ route('home') }}">Trang chủ</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+                        <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Môn học</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="courses.html">HTML</a>
                             <a class="dropdown-item" href="courses.html">WordPress</a>
@@ -25,7 +26,8 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Lĩnh vực</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="#">HTML</a>
                             <a class="dropdown-item" href="#">WordPress</a>
@@ -35,27 +37,25 @@
                         </div>
 
                     </li>
+                    @if(Auth::user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Group</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Tiến trình học</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
                     </li>
                 </ul>
-{{--                <ul class="navbar-nav absolute-right">--}}
-{{--                    <li>--}}
-{{--                        <a href="login.html">Login</a> / <a href="register.html">Register</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -70,7 +70,8 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -81,7 +82,8 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

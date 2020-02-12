@@ -1,5 +1,9 @@
 @extends('clients.layouts.master')
 
+@section('title')
+    home
+@endsection
+
 @section('content')
     <section class="site-hero overlay" data-stellar-background-ratio="0.5"
              style="background-image: url(images/big_image_2.jpg);">
@@ -9,16 +13,17 @@
 
                     <div class="mb-5 element-animate">
                         <div class="block-17">
-                            <h2 class="heading text-center mb-4">Find Oneline Courses That Suits You</h2>
+                            <h2 class="heading text-center mb-4">Tìm các khóa học phù hợp với bạn
+                            </h2>
                             <form action="" method="post" class="d-block d-lg-flex mb-4">
                                 <div class="fields d-block d-lg-flex">
                                     <div class="textfield-search one-third"><input type="text" class="form-control"
-                                                                                   placeholder="Keyword search...">
+                                                                                   placeholder="Từ khóa ...">
                                     </div>
                                     <div class="select-wrap one-third">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="" id="" class="form-control">
-                                            <option value="">Category Course</option>
+                                            <option value="">Lĩnh vực</option>
                                             <option value="">Laravel</option>
                                             <option value="">PHP</option>
                                             <option value="">JavaScript</option>
@@ -28,17 +33,19 @@
                                     <div class="select-wrap one-third">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="" id="" class="form-control">
-                                            <option value="">Difficulty</option>
+                                            <option value="">Cơ bản</option>
                                             <option value="">Beginner</option>
                                             <option value="">Intermediate</option>
                                             <option value="">Advance</option>
                                         </select>
                                     </div>
                                 </div>
-                                <input type="submit" class="search-submit btn btn-primary" value="Search">
+                                <input type="submit" class="search-submit btn btn-primary" value="Tìm kiếm">
                             </form>
-                            <p class="text-center mb-5">We have more than 500 courses to improve your skills</p>
-                            <p class="text-center"><a href="#" class="btn py-3 px-5">Register Now</a></p>
+                            @if(!Auth::user())
+                                <p class="text-center"><a href="{{ route('register') }}" class="btn py-3 px-5">Đăng
+                                        ký</a></p>
+                            @endif
                         </div>
                     </div>
 
@@ -67,14 +74,15 @@
 
                     <div class="block-15">
                         <div class="heading">
-                            <h2>Welcome to University</h2>
+                            <h2>Chào mừng đến với SUPPORTER</h2>
                         </div>
                         <div class="text mb-5">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium
-                                eligendi velit deleniti nihil ad deserunt rerum incidunt nulla nemo eius molestiae
-                                architecto beatae asperiores doloribus animi.</p>
+                            <p>Có thể các bạn không phải là dân chuyên ngành Công nghệ thông tin, hoặc chưa biết gì về
+                                Lập trình web nhưng lại rất muốn học để làm website, các bạn tự đặt ra câu hỏi rằng
+                                "liệu mình có thể học được hay không, phải bắt đầu học từ đâu, học bao lâu thì mới làm
+                                được website !?". Hãy đến với chúng tôi.</p>
                         </div>
-                        <p><a href="#" class="btn btn-primary reverse py-2 px-4">Read More</a></p>
+                        <p><a href="#" class="btn btn-primary reverse py-2 px-4">Xem thêm</a></p>
 
                     </div>
 
@@ -89,116 +97,38 @@
     <section class="site-section pt-3 element-animate">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="media block-6 d-block">
                         <div class="icon mb-3"><span class="flaticon-book"></span></div>
                         <div class="media-body">
-                            <h3 class="heading">Knowledge is power</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                            <h3 class="heading">Tri thức là sức mạnh</h3>
+                            <p>Cung cấp các bài viết thuộc lĩnh vực lập trình web, tài liệu hướng dẫn học HTML, CSS,
+                                Javascript, jQuery, MySQL, PHP, ... miễn phí</p>
                             <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="media block-6 d-block">
                         <div class="icon mb-3"><span class="flaticon-student"></span></div>
                         <div class="media-body">
-                            <h3 class="heading">Senior High School</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                            <h3 class="heading">Đông đảo thành viên</h3>
+                            <p>Wedsite hiện có hơn 10000 thành viên đến từ nhiều trường đại học trên cả nước tham gia
+                                học tập, tranning.</p>
                             <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">College of Arts &amp; Sciences</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
-                            <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="media block-6 d-block">
                         <div class="icon mb-3"><span class="flaticon-professor"></span></div>
                         <div class="media-body">
-                            <h3 class="heading">Unmatched Proffessor</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit mess.</p>
+                            <h3 class="heading">Đội ngũ supporter nhiệt tình</h3>
+                            <p>Đội ngũ supporter chuyên nghiệp luôn túc trực 24/24 đảm bảo hỗ trợ học viên một cách tốt
+                                nhất</p>
                             <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END section -->
-
-    <section class="site-section bg-light element-animate" id="section-counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <figure><img src="images/img_2_b.jpg" alt="Image placeholder" class="img-fluid"></figure>
-                </div>
-                <div class="col-lg-5 ml-auto">
-                    <div class="block-15">
-                        <div class="heading">
-                            <h2>Education is Life</h2>
-                        </div>
-                        <div class="text mb-5">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam nisi eos accusantium
-                                eligendi velit deleniti nihil ad deserunt rerum incidunt.</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-student"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="12921">0</strong>
-                                    <span>Students</span>
-                                </div>
-                            </div>
-
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-university"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="51">0</strong>
-                                    <span>Schools</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-books"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="3902">0</strong>
-                                    <span>Books</span>
-                                </div>
-                            </div>
-
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-mortarboard"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="1921">0</strong>
-                                    <span>Graduates</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -209,11 +139,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5 element-animate">
                 <div class="col-md-7 text-center section-heading">
-                    <h2 class="text-primary heading">Popular Courses</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore
-                        sapiente.</p>
-                    <p><a href="#" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Enroll
-                            Now</a></p>
+                    <h2 class="text-primary heading">Khóa học tiêu biểu</h2>
+                    <p><a href="#" class="btn btn-primary py-2 px-4"><span class="ion-ios-book mr-2"></span>Bắt đầu ngay</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -229,11 +157,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>2,219/6,000</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -250,11 +174,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>2,219/6,000</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -271,30 +191,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>1,903/3,000</span>
-                                </div>
-                                <div class="price text-right"><span>$10.99</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="block-19">
-                        <figure>
-                            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
-                                sint eveniet tempore sapiente.</p>
-                            <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>23/100</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -311,11 +208,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>2,219/6,000</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -332,11 +225,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>2,219/6,000</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -353,30 +242,7 @@
                             <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
                                 sint eveniet tempore sapiente.</p>
                             <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>1,903/3,000</span>
-                                </div>
-                                <div class="price text-right"><span>$10.99</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="block-19">
-                        <figure>
-                            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-                        </figure>
-                        <div class="text">
-                            <h2 class="heading"><a href="#">Design &amp; Develop</a></h2>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque
-                                sint eveniet tempore sapiente.</p>
-                            <div class="meta d-flex align-items-center">
-                                <div class="number">
-                                    <span>23/100</span>
-                                </div>
                                 <div class="price text-right">
-                                    <del class="mr-3">$23</del>
                                     <span>Free</span></div>
                             </div>
                         </div>
@@ -394,9 +260,7 @@
     <div class="container site-section element-animate">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 text-center section-heading">
-                <h2 class="text-primary heading">Teachers</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore
-                    sapiente.</p>
+                <h2 class="text-primary heading">Đội ngũ supporter</h2>
             </div>
         </div>
         <div class="row">
@@ -487,119 +351,4 @@
     </div>
     <!-- END .block-2 -->
 
-
-    <div class="site-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center mb-5 element-animate">
-                <div class="col-md-7 text-center section-heading">
-                    <h2 class="text-primary heading">Blog</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore
-                        sapiente.</p>
-                </div>
-            </div>
-            <div class="row element-animate">
-
-                <div class="col-md-12 mb-5 mb-lg-0 col-lg-6">
-
-                    <div class="block-20 ">
-                        <figure>
-                            <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                        </figure>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                    blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-12 col-lg-6">
-
-                    <div class="block-21 d-flex mb-4">
-                        <figure class="mr-3">
-                            <a href="#"><img src="images/img_1.jpg" alt="" class="img-fluid"></a>
-                        </figure>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                    blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-21 d-flex mb-4">
-                        <figure class="mr-3">
-                            <a href="#"><img src="images/img_2.jpg" alt="" class="img-fluid"></a>
-                        </figure>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                    blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-21 d-flex mb-4">
-                        <figure class="mr-3">
-                            <a href="#"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-                        </figure>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                    blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-21 d-flex mb-4">
-                        <figure class="mr-3">
-                            <a href="#"><img src="images/img_3.jpg" alt="" class="img-fluid"></a>
-                        </figure>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
-                                    blind texts</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                                <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="py-5 block-22">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
-                    <h2 class="heading">Create cool websites</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi accusantium optio und.</p>
-                </div>
-                <div class="col-md-6">
-                    <form action="#" class="subscribe">
-                        <div class="form-group">
-                            <input type="email" class="form-control email" placeholder="Enter email">
-                            <input type="submit" class="btn btn-primary submit" value="Subscribe">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
