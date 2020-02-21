@@ -44,11 +44,10 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1'])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1']))
             return redirect()->route('home');
-        } else if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '0']))
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '0']))
             return redirect()->route('admins.index');
-        else
-            return $this->sendFailedLoginResponse($request);
+        return $this->sendFailedLoginResponse($request);
     }
 }

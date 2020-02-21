@@ -16,7 +16,7 @@
                         <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Môn học</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="courses.html">HTML</a>
+                            <a class="dropdown-item" href="{{ route('subjects.show', ['subject' => 1]) }}">HTML</a>
                             <a class="dropdown-item" href="courses.html">WordPress</a>
                             <a class="dropdown-item" href="courses.html">Laravel</a>
                             <a class="dropdown-item" href="courses.html">JavaScript</a>
@@ -29,17 +29,16 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Lĩnh vực</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="#">HTML</a>
-                            <a class="dropdown-item" href="#">WordPress</a>
-                            <a class="dropdown-item" href="#">Laravel</a>
-                            <a class="dropdown-item" href="#">JavaScript</a>
-                            <a class="dropdown-item" href="#">Python</a>
+                            <a class="dropdown-item" href="{{ route('categories.show', ['category' => 1]) }}">Lập trình web</a>
+                            <a class="dropdown-item" href="#">Lập trình android</a>
+                            <a class="dropdown-item" href="#">Lập trình IOS</a>
+                            <a class="dropdown-item" href="#">Trí tuệ nhân tạo</a>
                         </div>
 
                     </li>
                     @if(Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Group</a>
+                            <a class="nav-link" href="{{ route('groups.index') }}">Group</a>
                         </li>
 
                         <li class="nav-item">
