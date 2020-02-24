@@ -46,8 +46,8 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '1']))
             return redirect()->route('home');
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '0']))
+        else if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => '0']))
             return redirect()->route('admins.index');
-        return $this->sendFailedLoginResponse($request);
+        else return $this->sendFailedLoginResponse($request);
     }
 }
