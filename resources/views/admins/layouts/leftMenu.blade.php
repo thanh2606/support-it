@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Supporter</span></a>
+            <a href="{{ route('home') }}" class="site_title"><i class="fa fa-paw"></i> <span>Supporter</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -25,12 +25,11 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href=""><i class="fa fa-home"></i> Home </a></li>
-                    <li><a href=""><i class="fa fa-th-list"></i>Categories</a></li>
-                    <li><a href=""><i class="fa fa-truck"></i> Brands</a></li>
-                    <li><a href=""><i class="fa fa-gift"></i> Products </a></li>
-                    <li><a href="{{ route('info-users.index') }}"><i class="fa fa-male"></i> Customers </a></li>
-                    <li><a href=""><i class="fa fa-shopping-cart"></i>Orders</a></li>
+                    <li><a href="{{ route('admins.home') }}"><i class="fa fa-home"></i> Home </a></li>
+                    <li><a href="{{ route('categories.index') }}"><i class="fa fa-th-list"></i>Lĩnh vực</a></li>
+                    <li><a href="{{ route('admin.subjects.index') }}"><i class="fa fa-book"></i>Môn Học</a></li>
+                    <li><a href="{{ route('admin.groups.index') }}"><i class="fa fa-group"></i>Group</a></li>
+                    <li><a href="{{ route('info-users.index') }}"><i class="fa fa-male"></i> Người dùng </a></li>
                 </ul>
             </div>
         </div>

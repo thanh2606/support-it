@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('admin/images/favicon.ico') }}" type="image/ico"/>
 
     <title>@yield('title')</title>
@@ -32,7 +33,7 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset('admin/build/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/build/css/custom.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('admin/build/css/sweetalert2.min.css') }}" rel="stylesheet">
     {{--    data table--}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
@@ -55,7 +56,7 @@
     <!-- /footer content -->
     </div>
 </div>
-
+<script src="{{ asset('admin/build/js/vue.js') }}"></script>
 <!-- number format -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <!-- jQuery -->
@@ -103,8 +104,12 @@
 {{--data table--}}
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <!--sweetalert-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="{{ asset('admin/build/js/sweetalert2.min.js') }}"></script>
 <!--Javascript of content-->
+
+<!-- CK Editor -->
+<script src="{{ asset('admin/vendors/ckeditor/ckeditor.js') }}"></script>
+
 @yield('script')
 </body>
 </html>

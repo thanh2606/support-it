@@ -80,7 +80,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    @if(Auth::user()->status == 0)
+                                    <a class="dropdown-item" href="{{ route('admins.home') }}">
+                                        Admin dashboard
+                                    </a>
+                                    @endif
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
                                         @csrf

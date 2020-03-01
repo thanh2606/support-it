@@ -40,4 +40,14 @@ class User extends Authenticatable
     public function info_user(){
         return $this->hasOne('App\Info_User');
     }
+
+    public function group()
+    {
+        return $this->hasMany(Group::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Messages::class);
+    }
 }
